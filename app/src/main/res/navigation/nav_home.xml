@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/view_pager_fragment">
+
+    <fragment
+        android:id="@+id/view_pager_fragment"
+        android:name="com.mobiqity.weather.ui.HomeFragment"
+        tools:layout="@layout/home_fragment">
+
+        <action
+                android:id="@+id/action_home_fragment_to_add_location_fragment"
+                app:destination="@id/add_location_fragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_home_fragment_to_add_weather_details"
+            app:destination="@id/weather_details" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/add_location_fragment"
+        android:name="com.mobiqity.weather.ui.AddLocationFragment"
+        android:label="@string/add_location"
+        tools:layout="@layout/add_location_fragment">
+
+<!--        <action-->
+<!--            android:id="@+id/action_plant_detail_fragment_to_gallery_fragment"-->
+<!--            app:destination="@id/gallery_fragment"-->
+<!--            app:enterAnim="@anim/slide_in_right"-->
+<!--            app:exitAnim="@anim/slide_out_left"-->
+<!--            app:popEnterAnim="@anim/slide_in_left"-->
+<!--            app:popExitAnim="@anim/slide_out_right" />-->
+<!--        <argument-->
+<!--            android:name="plantId"-->
+<!--            app:argType="string" />-->
+    </fragment>
+
+    <fragment
+        android:id="@+id/weather_details"
+        android:name="com.mobiqity.weather.ui.WeatherDetailsFragment"
+        android:label="@string/weather_details_title"
+        tools:layout="@layout/weather_details_fragment">
+        <argument
+            android:name="location"
+            android:defaultValue="@null"
+            app:argType="com.mobiqity.weather.data.Location"
+            app:nullable="true" />
+    </fragment>
+
+</navigation>
